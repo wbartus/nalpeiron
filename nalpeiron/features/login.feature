@@ -9,7 +9,7 @@ Feature: Log in page
 	Scenario: Successful login	
 		When correct credentials are provided
 		Then I am logged in
-
+	@bad
 	Scenario: Failed login
-		When wrong credentials are provided
-		Then member is not able to log in
+		When I use wrong credential, example:
+		Then I should not be able to log in 
