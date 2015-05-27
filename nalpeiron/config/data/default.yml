@@ -1,0 +1,6 @@
+correct:
+ username: nsa@nalpeiron.com
+ password: Nsa1996!
+bad:
+ username: ~email_address
+ password: ~words(number=1)

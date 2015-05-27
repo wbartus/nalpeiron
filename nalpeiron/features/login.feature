@@ -5,11 +5,11 @@ Feature: Log in page
 
 	Background: 
 		Given I am on login page
-	
+	@good
 	Scenario: Successful login	
-		When correct credentials are provided
+		When provided credentials are "correct"
 		Then I am logged in
 	@bad
 	Scenario: Failed login
-		When I use wrong credential, example:
+		When provided credentials are "bad"
 		Then I should not be able to log in 

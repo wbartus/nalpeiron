@@ -1,10 +1,6 @@
 class LoginPage
 	include PageObject
-
-	DEFAULT_DATA = {
-		'username' => Faker::Internet.free_email,
-		'password' => Faker::Internet.password
-	}
+	include DataMagic
 
 
 	page_url "http://my.nalpeiron.com/"
@@ -13,20 +9,11 @@ class LoginPage
 	button(:login, :id => 'MainContent_Login_btnLogin')
 	div(:error_message, :id => 'pnlLoginError')
 
-	def log_me_in(user, pass)
-		self.username = user
-		self.password = pass
+	def log_me_in(data)
+		populate_page_with data_for(data.to_sym)
 		login
 	end
 
-	def fill_with_data(data={})
-		fill_hash = DEFAULT_DATA.merge(data)
-		populate_page_with fill_hash
-		puts "Used dara:"
-		puts "User: #{fill_hash['username']}"
-		puts "User: #{fill_hash['password']}"
-		login
-	end
 
 
 end
