@@ -4,3 +4,4 @@ correct:
 bad:
  username: ~email_address
  password: ~words(number=1)
+ 

@@ -9,7 +9,9 @@ When(/^provided credentials are "(.*?)"$/) do |scenario|
 end
 
 Then(/^I am logged in$/) do
-  expect(on(NslPage).logged_user).to eq "nsa@nalpeiron.com"
+  @data = on(LoginPage).data_for :correct
+  #expect(on(NslPage).logged_user).to eq @data["username"]
+  expect(on(NslPage).logged_user).to eq on(NslPage).take["username"]
 end
 
 Then(/^I should not be able to log in$/) do

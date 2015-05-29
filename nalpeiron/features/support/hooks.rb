@@ -1,6 +1,13 @@
 require 'watir-webdriver'
 
-browser = Watir::Browser.new :chrome
+if ENV['BROWSER'] == 'FIREFOX'
+
+	browser = Watir::Browser.new :firefox
+else
+	browser = Watir::Browser.new :chrome
+
+end
+
 
 Before do
   @browser = browser

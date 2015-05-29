@@ -13,7 +13,7 @@ class LoginPage
 		populate_page_with data_for(data.to_sym)
 		login
 	end
-
+	
 
 
 end
